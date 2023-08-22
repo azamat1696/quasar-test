@@ -9,7 +9,7 @@ jobs:
     name: Deploy Application
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Repo
+      - name: Checkout Repor
         uses: actions/checkout@master
       - name: Create Node Environment
         uses: actions/setup-node@v1
