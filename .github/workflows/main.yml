@@ -13,7 +13,7 @@ jobs:
       - name: git-checkout
         uses: actions/checkout@v2
 
-      - name: Install all dependencies d
+      - name: Install all dependencies
         run: npm install
 
       - name: Build
