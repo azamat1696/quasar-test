@@ -1,29 +1,33 @@
-name: Deploy to Github Pages
+name: Deploy to Hostinger
 on:
   push:
     branches:
-      - develop
+      - main # Change this to your main branch name
 
 jobs:
   deploy:
-    name: Deploy Application
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout Repor
-        uses: actions/checkout@master
-      - name: Create Node Environment
-        uses: actions/setup-node@v1
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Set Up Node.js
+        uses: actions/setup-node@v2
         with:
-          node-version: 10.x
-      - name: Install Packages and Build Application
-        run: |
-          npm install -g @vue/cli yarn
-          yarn install
-          yarn build
-      - name: Deploy
-        uses: s0/git-publish-subdir-action@develop
-        env:
-          REPO: self
-          BRANCH: master
-          FOLDER: dist
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          node-version: 18 # Adjust to your project's Node.js version
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Build Application
+        run: npm run build
+
+      - name: Deploy to Hostinger
+        uses: SamKirkland/FTP-Deploy-Action@3.1.1
+        with:
+          server: ftp.snonlineshopping.com # Adjust to your Hostinger FTP server
+          username: "u803693674.azamat"
+          password: "AB.aziz412"
+          local-dir: dist/spa # Adjust to your build output directory
+          remote-dir: public_html/test # Adjust to your Hostinger web root directory
