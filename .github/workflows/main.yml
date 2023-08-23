@@ -29,7 +29,7 @@ jobs:
           server: ftp.snonlineshopping.com # Adjust to your Hostinger FTP server
           username: "u803693674.azamat"
           password: "AB.aziz412"
-          local-dir: dist/spa # Adjust to your build output directory
+          local-dir: dist/spa/ # Adjust to your build output directory
           server-dir: public_html/test # Adjust to your Hostinger web root directory
           exclude: |
             **/.git*
