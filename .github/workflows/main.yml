@@ -10,7 +10,7 @@ jobs:
 
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Set Up Node.js
         uses: actions/setup-node@v2
@@ -31,3 +31,7 @@ jobs:
           ftp-password: "AB.aziz412"
           local-dir: dist/spa # Adjust to your build output directory
           git-ftp-args: public_html/test # Adjust to your Hostinger web root directory
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/node_modules/**
