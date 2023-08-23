@@ -30,4 +30,4 @@ jobs:
           ftp-username: "u803693674.azamat"
           ftp-password: "AB.aziz412"
           local-dir: dist/spa # Adjust to your build output directory
-          entryPoint: public_html/test # Adjust to your Hostinger web root directory
+          args: public_html/test # Adjust to your Hostinger web root directory
